@@ -30,9 +30,7 @@
 </svg>
 <div class="fixed w-screen h-screen">
   <div class="@dark:text-neutral-3 font-bold text-center text-xl mt-5">
-    amplitude={(Math.hypot(currentX - 150, currentY - 150) / 150).toPrecision(
-      3
-    )}
+    amplitude={(Math.hypot(currentX - 150, currentY - 150) / 150).toFixed(3)}
   </div>
   <div class="flex justify-center gap-10 mt-5">
     <div>
@@ -49,7 +47,7 @@
     </div>
     <div>
       <div class="@dark:text-neutral-3 font-bold text-center text-xl">
-        total angle = {totalAngle.toPrecision(3)}
+        total angle = {totalAngle.toFixed(3)}
       </div>
       <input
         type="range"
