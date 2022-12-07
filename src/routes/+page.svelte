@@ -1,7 +1,7 @@
 <script>
   import "uno.css";
   import "@unocss/reset/tailwind.css";
-  let phasors = 100,
+  let phasors = 50,
     totalAngle = Math.PI,
     path,
     currentX,
@@ -39,7 +39,7 @@
       <div class="@dark:text-neutral-3 font-bold text-center text-xl">
         phasors = {phasors}
       </div>
-      <input type="range" bind:value={phasors} min="1" max="200" />
+      <input type="range" bind:value={phasors} min="1" max="100" />
     </div>
     <div>
       <div class="@dark:text-neutral-3 font-bold text-center text-xl">
