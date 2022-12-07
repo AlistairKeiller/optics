@@ -39,7 +39,13 @@
       <div class="@dark:text-neutral-3 font-bold text-center text-xl">
         phasors = {phasors}
       </div>
-      <input type="range" bind:value={phasors} min="1" max="100" />
+      <input
+        type="range"
+        class="md:w-xs lg:w-md xl:w-lg"
+        bind:value={phasors}
+        min="1"
+        max="100"
+      />
     </div>
     <div>
       <div class="@dark:text-neutral-3 font-bold text-center text-xl">
@@ -47,6 +53,7 @@
       </div>
       <input
         type="range"
+        class="md:w-xs lg:w-md xl:w-lg"
         bind:value={totalAngle}
         max={6 * Math.PI}
         step={Math.PI / 20}
