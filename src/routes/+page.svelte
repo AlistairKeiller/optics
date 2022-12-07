@@ -1,7 +1,7 @@
 <script>
   import "uno.css";
   import "@unocss/reset/tailwind.css";
-  let numberOfPhasors = 100,
+  let phasors = 100,
     totalAngle = Math.PI,
     path,
     currentX,
@@ -9,36 +9,40 @@
   var i;
   $: for (
     currentX = 150, currentY = 150, path = `M${currentX} ${currentY} `, i = 0;
-    i < numberOfPhasors;
+    i < phasors;
     i++
   ) {
-    currentX +=
-      (150 / numberOfPhasors) * Math.cos((totalAngle * i) / numberOfPhasors);
-    currentY +=
-      (150 / numberOfPhasors) * Math.sin((totalAngle * i) / numberOfPhasors);
+    currentX += (150 / phasors) * Math.cos((totalAngle * i) / phasors);
+    currentY += (150 / phasors) * Math.sin((totalAngle * i) / phasors);
     path += `L${currentX} ${currentY} `;
   }
 </script>
 
+<div class="bg-neutral-2 @dark:bg-neutral-8" />
 <svg class="fixed w-screen h-screen" viewBox="0 0 300 300">
   <path stroke="#0284c7" stroke-width="2" fill="none" d={path} />
-  <circle cx={currentX} cy={currentY} fill="#262626" r="2" />
+  <circle
+    cx={currentX}
+    cy={currentY}
+    r="2"
+    class="fill-neutral-8 @dark:fill-neutral-3"
+  />
 </svg>
 <div class="fixed w-screen h-screen">
-  <div class="text-center text-xl mt-5">
+  <div class="@dark:text-neutral-3 font-bold text-center text-xl mt-5">
     amplitude={(Math.hypot(currentX - 150, currentY - 150) / 150).toPrecision(
       3
     )}
   </div>
   <div class="flex justify-center gap-10 mt-5">
     <div>
-      <div class="text-center text-xl">
-        number of phasors = {numberOfPhasors}
+      <div class="@dark:text-neutral-3 font-bold text-center text-xl">
+        phasors = {phasors}
       </div>
-      <input type="range" bind:value={numberOfPhasors} min="1" max="200" />
+      <input type="range" bind:value={phasors} min="1" max="200" />
     </div>
     <div>
-      <div class="text-center text-xl">
+      <div class="@dark:text-neutral-3 font-bold text-center text-xl">
         total angle = {totalAngle.toPrecision(3)}
       </div>
       <input
